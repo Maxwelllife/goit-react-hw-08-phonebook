@@ -17,6 +17,29 @@ export const signup = createAsyncThunk(
   }
 );
 
+export const login = createAsyncThunk('auth/login', async (data, thunkAPI) => {
+  try {
+    const result = await api.login(data);
+    return result;
+  } catch (error) {
+    toast.error(`Sorry, login failed. Check email and password. Try again.`);
+    return thunkAPI.rejectWithValue(error);
+  }
+});
+
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (data, thunkAPI) => {
+    try {
+      const result = await api.logout(data);
+      return result;
+    } catch (error) {
+      toast.error(`Sorry, logout failed. Try again.`);
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 export const getCurrentUser = createAsyncThunk(
   'auth/getCurrentUser',
   async (_, thunkAPI) => {

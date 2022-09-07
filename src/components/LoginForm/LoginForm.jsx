@@ -1,24 +1,17 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import s from './RegisterForm.module.css';
+import s from './LoginForm.module.css';
 
-const RegisterForm = ({ onSubmitClick }) => {
+const LoginForm = ({ onSubmitClick }) => {
   return (
     <Formik
       initialValues={{
-        name: '',
         email: '',
         password: '',
       }}
       validationSchema={Yup.object().shape({
-        name: Yup.string()
-          .matches(
-            /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-            'Must be only charaters and space'
-          )
-          .min(2, 'Must be 2 characters or more')
-          .required('Required'),
         email: Yup.string().email('Invalid email address').required('Required'),
+
         password: Yup.string()
           .matches(
             /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/,
@@ -31,7 +24,6 @@ const RegisterForm = ({ onSubmitClick }) => {
       // values это наш стейт formika
       onSubmit={(values, props) => {
         const { resetForm } = props;
-        console.log('props: ', props);
         onSubmitClick({ ...values });
         resetForm();
       }}
@@ -40,19 +32,6 @@ const RegisterForm = ({ onSubmitClick }) => {
         const { values, handleChange, handleSubmit, errors } = props;
         return (
           <Form className={s.form} onSubmit={handleSubmit}>
-            <div className={s.block}>
-              <Field
-                name="name"
-                type="text"
-                value={values.name}
-                className={s.input}
-                onChange={handleChange}
-              />
-              <label htmlFor="name" className={s.label}>
-                Name
-              </label>
-              <ErrorMessage name="name" component="div" className={s.error} />
-            </div>
             <div className={s.block}>
               <Field
                 name="email"
@@ -68,6 +47,7 @@ const RegisterForm = ({ onSubmitClick }) => {
                 {msg => <div className={s.error}>{msg}</div>}
               </ErrorMessage>
             </div>
+
             <div className={s.block}>
               <Field
                 name="password"
@@ -83,6 +63,7 @@ const RegisterForm = ({ onSubmitClick }) => {
                 {msg => <div className={s.error}>{msg}</div>}
               </ErrorMessage>
             </div>
+
             <button
               type="submit"
               className={s.btn}
@@ -97,4 +78,4 @@ const RegisterForm = ({ onSubmitClick }) => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

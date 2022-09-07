@@ -13,7 +13,7 @@ const initialState = {
 };
 
 const contactsSlice = createSlice({
-  name: 'books',
+  name: 'contacts',
   initialState,
   reducers: {
     filterContact: (store, action) => {
@@ -57,7 +57,8 @@ const contactsSlice = createSlice({
       store.error = null;
     },
     [removeContact.fulfilled]: (store, { payload }) => {
-      store.items = store.items.filter(items => items.id !== payload.id);
+      store.items = store.items.filter(items => items.id !== payload);
+      console.log('payload: ', payload);
       store.loading = false;
     },
     [removeContact.rejected]: (store, { payload }) => {

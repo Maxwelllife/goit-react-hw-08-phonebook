@@ -5,10 +5,10 @@ function ContactList(props) {
 
   return (
     <ul>
-      {items.map(({ name, phone, id }) => (
+      {items.map(({ name, number, id }) => (
         <li className={s.item} key={id}>
           <p>
-            {name}: {phone}
+            {name}: {number}
           </p>
           <button
             className={s.button}

@@ -1,6 +1,7 @@
 import Logo from './Logo/Logo';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import NavBarAuth from './NavBarAuth/NavBarAuth';
+import UserMenu from './UserMenu/UserMenu';
 
 import PropTypes from 'prop-types';
 
@@ -13,6 +14,7 @@ const Header = () => {
         <Logo />
         <HeaderMenu />
         <NavBarAuth />
+        <UserMenu />
       </header>
     </>
   );

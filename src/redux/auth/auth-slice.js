@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCurrentUser, signup } from './auth-operations';
+import { getCurrentUser, signup, login, logout } from './auth-operations';
 
 const initialState = {
   user: {},
@@ -32,23 +32,45 @@ const authSlice = createSlice({
     //данные из формы подставляются в ф. signup операцию, а сам вызов происходит с помощью диспатча в RegisterPage
 
     [signup.pending]: store => {
-      console.log('store.pending: ', store);
-
       store.loading = true;
       store.error = null;
     },
     [signup.fulfilled]: (store, { payload }) => {
-      console.log('store.fulfilled: ', store);
-      console.log('payload: ', payload);
-
-      // store.user = { ...payload };
-      // store.loading = false;
+      store.user = { ...payload.user };
+      store.token = payload.token;
+      store.loading = false;
     },
-    // [signup.rejected]: (store, { payload }) => {
-    //   console.log('payload: ', payload);
-    // store.loading = false;
-    // store.error = payload;
-    // },
+    [signup.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+
+    // -------------------login------------------------------
+
+    [login.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [login.fulfilled]: (store, { payload }) => {
+      store.user = { ...payload.user };
+      store.token = payload.token;
+      store.loading = false;
+    },
+    [login.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+
+    // -------------------logout------------------------------
+    [logout.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [logout.fulfilled]: () => ({ ...initialState }),
+    [logout.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
   },
 });
 
