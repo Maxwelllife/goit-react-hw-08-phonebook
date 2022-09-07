@@ -1,0 +1,8 @@
+.logo {
+  display: inline-block;
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}

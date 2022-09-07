@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, removeContact } from './operations';
+import {
+  fetchContacts,
+  addContact,
+  removeContact,
+} from './contacts-operations';
+
 const initialState = {
-  //   contacts: {
-  //     items: [],
-  //     loading: false,
-  //     error: null,
-  //     filter: '',
-  //   },
   items: [],
   loading: false,
   error: null,
   filter: '',
 };
+
 const contactsSlice = createSlice({
   name: 'books',
   initialState,
@@ -67,5 +67,7 @@ const contactsSlice = createSlice({
   },
 });
 
+// когда обычный редюсер то экспортируем вот так как екшн
 export const { filterContact } = contactsSlice.actions;
+// а для extraReducers вот так
 export default contactsSlice.reducer;

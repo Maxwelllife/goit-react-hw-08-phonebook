@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import s from './SectionTitle.module.css';
-const SectionTitle = ({ title, children }) => {
+import s from './Section.module.css';
+const Section = ({ title, children }) => {
   return (
     <section className={s.section}>
       <h1>{title}</h1>
@@ -9,9 +9,9 @@ const SectionTitle = ({ title, children }) => {
   );
 };
 
-SectionTitle.propTypes = {
+Section.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
-export default SectionTitle;
+export default Section;
