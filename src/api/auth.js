@@ -46,4 +46,5 @@ export const getCurrentUser = async token => {
     throw error;
   }
 };
+
 export default instance;
