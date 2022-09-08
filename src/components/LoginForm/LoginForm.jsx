@@ -1,11 +1,8 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { useSelector } from 'react-redux';
-import { getToken } from 'redux/auth/auth-selector';
 import * as Yup from 'yup';
 import s from './LoginForm.module.css';
 
 const LoginForm = ({ onSubmitClick }) => {
-  const isAuth = useSelector(getToken);
   return (
     <Formik
       initialValues={{

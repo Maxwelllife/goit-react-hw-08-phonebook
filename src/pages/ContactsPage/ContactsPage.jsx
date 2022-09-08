@@ -9,7 +9,6 @@ import {
 } from 'redux/contacts/contacts-operations';
 import { filterContact } from '../../redux/contacts/contacts-slice';
 import { getContacts } from '../../redux/contacts/contacts-selector';
-import { getToken } from 'redux/auth/auth-selector';
 
 const ContactsPage = () => {
   const { items, filter, loading } = useSelector(getContacts);
