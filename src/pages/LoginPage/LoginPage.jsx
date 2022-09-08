@@ -1,6 +1,7 @@
 import LoginForm from 'components/LoginForm/LoginForm';
 import { login } from '../../redux/auth/auth-operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getToken } from 'redux/auth/auth-selector';
 
 // все данные с формы прилетают в onSubmitClick -> onLogin -> data-> dispatch выполняет операцию signup
 const LoginPage = () => {
@@ -9,9 +10,14 @@ const LoginPage = () => {
   const onLogin = data => {
     dispatch(login(data));
   };
+  const isAuth = useSelector(getToken);
   return (
     <main>
-      <LoginForm onSubmitClick={onLogin} />
+      {!isAuth ? (
+        <LoginForm onSubmitClick={onLogin} />
+      ) : (
+        <h2>Now you can use Phonebook</h2>
+      )}
     </main>
   );
 };

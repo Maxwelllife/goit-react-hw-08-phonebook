@@ -1,11 +1,16 @@
 .form {
   display: flex;
   flex-direction: column;
-
-  /* padding: 25px; */
+  /* padding-top: 25px; */
 }
 .label {
-  margin-top: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.label:not(:first-child) {
+  margin-top: 30px;
 }
 .inputName {
   margin-left: 22px;
@@ -17,5 +22,16 @@
 .button {
   margin: 0 auto;
   /* max-width: 189px; */
-  margin-top: 15px;
+  margin-top: 30px;
+}
+
+/* .block {
+ 
+} */
+
+.error {
+  color: red;
+  position: absolute;
+  left: 0;
+  bottom: -100%;
 }

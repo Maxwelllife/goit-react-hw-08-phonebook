@@ -7,8 +7,11 @@ const getLinkClassName = props => {
   return isActive ? s.activeLink : s.link;
 };
 
-const HeaderMenu = () => {
-  const elements = menuItems.map(({ id, to, text }) => (
+const HeaderMenu = ({ isAuth }) => {
+  const selectedItems = isAuth
+    ? menuItems
+    : menuItems.filter(item => !item.private);
+  const elements = selectedItems.map(({ id, to, text }) => (
     <li className={s.menu__item} key={id}>
       <NavLink to={to} className={getLinkClassName}>
         {text}

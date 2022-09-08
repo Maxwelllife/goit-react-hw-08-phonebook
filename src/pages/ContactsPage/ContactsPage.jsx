@@ -9,6 +9,7 @@ import {
 } from 'redux/contacts/contacts-operations';
 import { filterContact } from '../../redux/contacts/contacts-slice';
 import { getContacts } from '../../redux/contacts/contacts-selector';
+import { getToken } from 'redux/auth/auth-selector';
 
 const ContactsPage = () => {
   const { items, filter, loading } = useSelector(getContacts);
@@ -36,6 +37,7 @@ const ContactsPage = () => {
         {loading && <p>...Loading</p>}
         <ContactsForm catchSubmitInfo={onAddContact} />
       </Section>
+
       <Section title="Contacts">
         <Filter filterValue={filter} onFilter={onfilterContact} />
         {items ? (

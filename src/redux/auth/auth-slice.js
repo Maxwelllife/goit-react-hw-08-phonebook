@@ -4,7 +4,6 @@ import { getCurrentUser, signup, login, logout } from './auth-operations';
 const initialState = {
   user: {},
   token: '',
-  isLogin: false,
   loading: false,
   error: null,
 };
@@ -24,7 +23,6 @@ const authSlice = createSlice({
       store.loading = false;
     },
     [getCurrentUser.rejected]: (store, { payload }) => {
-      //   console.log('payload: ', payload);
       store.loading = false;
       store.error = payload;
     },

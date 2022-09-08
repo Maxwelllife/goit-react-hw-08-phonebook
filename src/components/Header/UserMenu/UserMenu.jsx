@@ -10,6 +10,7 @@ const UserMenu = () => {
   const onLogout = tokenForLogout => {
     dispatch(logout(tokenForLogout));
   };
+
   return (
     <div className={s.block}>
       <p className={s.usermenu}>
@@ -22,4 +23,5 @@ const UserMenu = () => {
     </div>
   );
 };
+
 export default UserMenu;

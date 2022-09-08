@@ -45,7 +45,10 @@ export const getCurrentUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { auth } = thunkAPI.getState();
+      console.log('auth: ', auth);
       const result = await api.getCurrentUser(auth.token);
+      console.log('result: ', result);
+
       return result;
     } catch (error) {
       return thunkAPI.rejectWithValue(

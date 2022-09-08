@@ -6,14 +6,14 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { getCurrentUser } from 'api/auth';
+import { getCurrentUser } from '../redux/auth/auth-operations';
 
 const App = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getCurrentUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
 
   return (
     <div className={s.wrap}>

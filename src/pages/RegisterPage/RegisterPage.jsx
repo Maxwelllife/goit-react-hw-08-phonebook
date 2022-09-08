@@ -9,6 +9,7 @@ const RegisterPage = () => {
   const onRegister = data => {
     dispatch(signup(data));
   };
+
   return (
     <main>
       <RegisterForm onSubmitClick={onRegister} />

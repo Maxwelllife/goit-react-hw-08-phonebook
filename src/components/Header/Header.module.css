@@ -1,5 +1,8 @@
 .app {
   display: flex;
-  height: 100px;
-  background-color: #31313115;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  /* height: 100px; */
+  /* background-color: #31313115; */
 }
